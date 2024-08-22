@@ -1,26 +1,19 @@
-"use client";
+import { borderStyles, colors, textColors } from "@/data/propertiesElementData";
 
-import React, { useState } from "react";
-import ElementCardFront from "./ElementCardFront";
-import ElementCardBack from "./ElementCardBack";
-
-const ElementCard = ({ element }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleFlip = (e) => {
-    e.stopPropagation(); 
-    setIsFlipped(!isFlipped);
-    };
+export default function ElementCard({ element }) {
+  const backgroundColor = colors[element.property];
+  const borderStyle = borderStyles[element.abundance];
+  const textColor = textColors[element.stateMatter] || "text-white";
 
   return (
-    <div className="relative w-80 h-96" onClick={handleFlip}>
-      {isFlipped ? (
-        <ElementCardBack element={element} />
-      ) : (
-        <ElementCardFront element={element} />
-      )}
+    <div
+      className={`rounded-lg shadow-lg p-2 flex flex-col items-center justify-center text-xs w-full h-full ${borderStyle}`}
+      style={{ backgroundColor }}
+    >
+      <span className={`text-xs ${textColor}`}>{element.atomicNumber}</span>
+      <span className={`text-sm font-extrabold ${textColor}`}>{element.symbol}</span>
+      <h3 className={`${textColor}`}>{element.name}</h3>
+      <span className={`text-xs ${textColor}`}>{element.atomicMass}</span>
     </div>
   );
-};
-
-export default ElementCard;
+}
