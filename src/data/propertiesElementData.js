@@ -1,13 +1,33 @@
+// propertiesElementData.js
+
 const borderStyles = {
-  primordial: "border-solid border-2",
-  synthetic: "border-dashed border-2",
-  disintegration: "border-dotted border-2",
+  primordial: {
+    borderStyle: "solid",
+    borderWidth: "5px",
+    borderColor: "white",
+  },
+  synthetic: {
+    borderStyle: "dashed",
+    borderWidth: "5px",
+    borderColor: "white",
+  },
+  disintegration: {
+    borderStyle: "dotted",
+    borderWidth: "5px",
+    borderColor: "white",
+  },
+  default: {
+    borderStyle: "solid",
+    borderWidth: "2px",
+    borderColor: "white",
+  },
 };
 
 const textColors = {
-  gas: "text-blue-400",
-  liquid: "text-teal-400",
-  solid: "text-black",
+  gas: { color: "#60a5fa" },
+  liquid: { color: "#2dd4bf" },
+  solid: { color: "#000000" },
+  default: { color: "#ffffff" },
 };
 
 const colors = {
@@ -21,6 +41,7 @@ const colors = {
   "Post-Transition Metal": "#f0c2c2",
   Lanthanide: "#b3b3e6",
   Actinide: "#e6b3b3",
+  default: "transparent",
 };
 
 export { borderStyles, textColors, colors };
